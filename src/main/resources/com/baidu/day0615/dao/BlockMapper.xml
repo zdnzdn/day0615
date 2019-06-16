@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baidu.day0615.dao.BlockMapper">
+  <resultMap id="BaseResultMap" type="com.baidu.day0615.po.Block">
+    <id column="blockhash" jdbcType="CHAR" property="blockhash" />
+    <result column="height" jdbcType="INTEGER" property="height" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="size" jdbcType="INTEGER" property="size" />
+    <result column="txSize" jdbcType="SMALLINT" property="txsize" />
+    <result column="transactions" jdbcType="DOUBLE" property="transactions" />
+    <result column="number_transaction" jdbcType="INTEGER" property="numberTransaction" />
+    <result column="difficulty" jdbcType="DOUBLE" property="difficulty" />
+    <result column="weight" jdbcType="REAL" property="weight" />
+    <result column="output_total" jdbcType="CHAR" property="outputTotal" />
+    <result column="next_hash" jdbcType="CHAR" property="nextHash" />
+    <result column="prev_hash" jdbcType="CHAR" property="prevHash" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    blockhash, height, time, size, txSize, transactions, number_transaction, difficulty, 
+    weight, output_total, next_hash, prev_hash
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from block
+    where blockhash = #{blockhash,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from block
+    where blockhash = #{blockhash,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.baidu.day0615.po.Block">
+    insert into block (blockhash, height, time, 
+      size, txSize, transactions, 
+      number_transaction, difficulty, weight, 
+      output_total, next_hash, prev_hash
+      )
+    values (#{blockhash,jdbcType=CHAR}, #{height,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, 
+      #{size,jdbcType=INTEGER}, #{txsize,jdbcType=SMALLINT}, #{transactions,jdbcType=DOUBLE}, 
+      #{numberTransaction,jdbcType=INTEGER}, #{difficulty,jdbcType=DOUBLE}, #{weight,jdbcType=REAL}, 
+      #{outputTotal,jdbcType=CHAR}, #{nextHash,jdbcType=CHAR}, #{prevHash,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.baidu.day0615.po.Block">
+    insert into block
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="blockhash != null">
+        blockhash,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="size != null">
+        size,
+      </if>
+      <if test="txsize != null">
+        txSize,
+      </if>
+      <if test="transactions != null">
+        transactions,
+      </if>
+      <if test="numberTransaction != null">
+        number_transaction,
+      </if>
+      <if test="difficulty != null">
+        difficulty,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="outputTotal != null">
+        output_total,
+      </if>
+      <if test="nextHash != null">
+        next_hash,
+      </if>
+      <if test="prevHash != null">
+        prev_hash,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="blockhash != null">
+        #{blockhash,jdbcType=CHAR},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=INTEGER},
+      </if>
+      <if test="txsize != null">
+        #{txsize,jdbcType=SMALLINT},
+      </if>
+      <if test="transactions != null">
+        #{transactions,jdbcType=DOUBLE},
+      </if>
+      <if test="numberTransaction != null">
+        #{numberTransaction,jdbcType=INTEGER},
+      </if>
+      <if test="difficulty != null">
+        #{difficulty,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=REAL},
+      </if>
+      <if test="outputTotal != null">
+        #{outputTotal,jdbcType=CHAR},
+      </if>
+      <if test="nextHash != null">
+        #{nextHash,jdbcType=CHAR},
+      </if>
+      <if test="prevHash != null">
+        #{prevHash,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.baidu.day0615.po.Block">
+    update block
+    <set>
+      <if test="height != null">
+        height = #{height,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="size != null">
+        size = #{size,jdbcType=INTEGER},
+      </if>
+      <if test="txsize != null">
+        txSize = #{txsize,jdbcType=SMALLINT},
+      </if>
+      <if test="transactions != null">
+        transactions = #{transactions,jdbcType=DOUBLE},
+      </if>
+      <if test="numberTransaction != null">
+        number_transaction = #{numberTransaction,jdbcType=INTEGER},
+      </if>
+      <if test="difficulty != null">
+        difficulty = #{difficulty,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=REAL},
+      </if>
+      <if test="outputTotal != null">
+        output_total = #{outputTotal,jdbcType=CHAR},
+      </if>
+      <if test="nextHash != null">
+        next_hash = #{nextHash,jdbcType=CHAR},
+      </if>
+      <if test="prevHash != null">
+        prev_hash = #{prevHash,jdbcType=CHAR},
+      </if>
+    </set>
+    where blockhash = #{blockhash,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.baidu.day0615.po.Block">
+    update block
+    set height = #{height,jdbcType=INTEGER},
+      time = #{time,jdbcType=TIMESTAMP},
+      size = #{size,jdbcType=INTEGER},
+      txSize = #{txsize,jdbcType=SMALLINT},
+      transactions = #{transactions,jdbcType=DOUBLE},
+      number_transaction = #{numberTransaction,jdbcType=INTEGER},
+      difficulty = #{difficulty,jdbcType=DOUBLE},
+      weight = #{weight,jdbcType=REAL},
+      output_total = #{outputTotal,jdbcType=CHAR},
+      next_hash = #{nextHash,jdbcType=CHAR},
+      prev_hash = #{prevHash,jdbcType=CHAR}
+    where blockhash = #{blockhash,jdbcType=CHAR}
+  </update>
+</mapper>
