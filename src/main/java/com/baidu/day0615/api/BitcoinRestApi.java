@@ -23,8 +23,8 @@ public interface BitcoinRestApi {
     @GetMapping("/rest/notxdetails{blockhash}.json")
     JSONObject getBlockNotxdetails(@PathVariable("blockhash") String blockhash);
 
-    @GetMapping("/rest/headers{count}.json")
-    JSONObject getHeaders(@PathVariable("count") Integer count);
+    @GetMapping("/rest/headers{count}/{blockhash}.json")
+    JSONObject getHeaders(@PathVariable("count") Integer count,@PathVariable("blockhash") String blockhash);
 
     @GetMapping("/rest/blockhashbyheight{height}.json")
     JSONObject getBlockHashByHeight(@PathVariable("height") double height);
