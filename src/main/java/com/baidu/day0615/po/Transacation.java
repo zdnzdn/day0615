@@ -13,6 +13,16 @@ public class Transacation {
 
     private Double amount;
 
+    public String getBlockhash() {
+        return blockhash;
+    }
+
+    public void setBlockhash(String blockhash) {
+        this.blockhash = blockhash;
+    }
+
+    private String blockhash;
+
     public String getTxhash() {
         return txhash;
     }

@@ -17,7 +17,6 @@ public class TempController {
     private BitcoinRestApi bitcoinRestApi;
 
     @GetMapping("/test")
-
     public String test(){
         JSONObject blockChainInfo = bitcoinRestApi.getBlockChainInfo();
         return  blockChainInfo.toJSONString();
