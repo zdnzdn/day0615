@@ -94,4 +94,8 @@ public class BitcoinServiceImpl implements BitcoinService{
     public void synDetailvin(JSONArray vins) {
 
     }
+
+    public void sage(){
+
+    }
 }
