@@ -9,7 +9,7 @@ public interface Tx_DetallMapper {
 
     int insertSelective(Tx_Detall record);
 
-    Tx_Detall selectByPrimaryKey(Long id);
+    Tx_Detall selectByPrimaryKey(String id);
 
     int updateByPrimaryKeySelective(Tx_Detall record);
 

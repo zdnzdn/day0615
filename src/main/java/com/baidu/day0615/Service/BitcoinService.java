@@ -10,7 +10,7 @@ import java.util.List;
 public interface BitcoinService {
 
     void synBlock(String blockhash);
-s
+
     void syncTx(JSONObject jsonObject, String blockHash, Date time);
 
     void syncTxDetail(JSONObject jsonObject);

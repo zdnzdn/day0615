@@ -1,22 +1,22 @@
 package com.baidu.day0615.po;
 
 public class Tx_Detall {
-    private Long id;
+    private Integer txDetallId;
 
     private String adress;
 
     private Double amount;
 
-    private Integer type;
+    private Byte type;
 
     private String txhash;
 
-    public Long getId() {
-        return id;
+    public Integer getTxDetallId() {
+        return txDetallId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTxDetallId(Integer txDetallId) {
+        this.txDetallId = txDetallId;
     }
 
     public String getAdress() {
@@ -35,11 +35,11 @@ public class Tx_Detall {
         this.amount = amount;
     }
 
-    public Integer getType() {
+    public Byte getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(Byte type) {
         this.type = type;
     }
 
